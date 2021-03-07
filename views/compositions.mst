@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compositions</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="icon" href="images/composition.png" type="image/icon type">
+</head>
+
+<body>
+    <div id="window">
+        <div id="head">
+            <div id="header">
+                <img class="logo" , src="images/composition.png" . alt="Composition logo">
+                <h1>Compositions table</h1>
+            </div>
+        </div>
+        <hr>
+        <div id="body">
+            <div id="menu">
+                <b>Menu</b>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/users">Users</a></li>
+                    <li class="disabled">Compositions</li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <div id="search_div">
+                    <form action="/compositions" method="GET" id="search">
+                        Search:
+                        <input type="search" name="title" value={{search}}>
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+                {{#empty}}
+                {{#search_res}}
+                <h3 class="centered">Results for "{{search}}"</h3>
+                {{/search_res}}
+                <table id="compositions">
+                    <tr id="titles">
+                        <th><b>Title</b></th>
+                    </tr>
+                    {{#compositions}}
+                    <tr>
+                        <th>{{{title}}}</th>
+                    </tr>
+                    {{/compositions}}
+                </table>
+                {{/empty}}
+                {{^empty}}
+                <h3 class="centered">Compositions not found!</h3>
+                {{/empty}}
+                <div id="addbtn" align="right">
+                    <form action="/compositions/new" method="GET">
+                        <input type="submit" value="Add new">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
