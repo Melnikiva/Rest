@@ -24,6 +24,7 @@ app.engine('mst', mustache());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'mst');
 
+const port = process.env.PORT || 3000;
 
 // swagger
 const expressSwaggerGenerator = require('express-swagger-generator');
@@ -44,7 +45,7 @@ const options = {
 };
 expressSwagger(options);
 
-app.listen(3000);
+app.listen(port);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
