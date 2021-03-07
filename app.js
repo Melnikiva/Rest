@@ -26,24 +26,26 @@ app.set('view engine', 'mst');
 
 const port = process.env.PORT || 3000;
 
-// swagger
-const expressSwaggerGenerator = require('express-swagger-generator');
-const expressSwagger = expressSwaggerGenerator(app);
 
-const options = {
-  swaggerDefinition: {
-    info: {
-      description: 'Detailed documentation',
-      title: 'Lab2 api documentation',
-      version: '1.0.0',
-    },
-    host: 'localhost:3000',
-    produces: ["application/json"],
-  },
-  basedir: __dirname,
-  files: ['./routes/**/*.js', './models/**/*.js'],
-};
-expressSwagger(options);
+// // swagger
+// const expressSwaggerGenerator = require('express-swagger-generator');
+// const expressSwagger = expressSwaggerGenerator(app);
+
+// const options = {
+//   swaggerDefinition: {
+//     info: {
+//       description: 'Detailed documentation',
+//       title: 'Lab2 api documentation',
+//       version: '1.0.0',
+//     },
+//     host: 'localhost:3000',
+//     produces: ["application/json"],
+//   },
+//   basedir: __dirname,
+//   files: ['./routes/**/*.js', './models/**/*.js'],
+// };
+// expressSwagger(options);
+
 
 app.listen(port);
 
